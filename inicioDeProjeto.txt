@@ -1,0 +1,37 @@
+   
+   ▬ ENTRADA ▬
+    
+    Cadastro
+    
+    <Sistema>  Tipo 1
+    
+      profissional --> eletricista <BUSCANDO> ......... <ACHOU> --> Lista de Profissional Disponível: 
+    <Lista>
+   
+    <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 1
+    <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 2
+    <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 3
+    <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 4
+    <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 5
+    <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 6
+    
+    
+    
+    <Sistema>  Tipo 2
+    
+    <BANNER com perfil profissionais>
+        <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 1
+        <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 2
+        <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 3
+        <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 4
+        <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 5
+        <Nome> <idade> <tempo profissinal> <Preço> <Disponibilidade: Disponível> 6
+        
+       <Cliente faz a escolha>
+   
+ 
+    
+    ▬ SAÍDA ▬
+    
+    Mostrar Cadastro
+    
