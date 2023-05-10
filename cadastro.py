@@ -7,7 +7,7 @@ print('▬▬▬▬▬▬ Cadastro ▬▬▬▬')          #CABEÇALHO
 pessoa['nome'] = str(input('Nome: '))
 pessoa['idade'] = datetime.now().year - int(input('Ano de nascimento: '))
 pessoa['email'] = str(input('E-mail: '))
-
+pessoa['cidade'] = str(input('Cidade: '))
 
 print('▬▬▬▬▬▬ Cadastro Finalizado ▬▬▬▬▬▬')
 cadastro.append(pessoa.copy())
