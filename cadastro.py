@@ -7,6 +7,7 @@ print('▬▬▬▬▬▬ Cadastro ▬▬▬▬')          #CABEÇALHO
 pessoa['nome'] = str(input('Nome: '))
 pessoa['idade'] = datetime.now().year - int(input('Ano de nascimento: '))
 pessoa['email'] = str(input('E-mail: '))
+pessoa['numero'] = int(input('Número: '))
 pessoa['cidade'] = str(input('Cidade: '))
 
 print('▬▬▬▬▬▬ Cadastro Finalizado ▬▬▬▬▬▬')
