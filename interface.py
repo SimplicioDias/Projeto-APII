@@ -14,7 +14,7 @@ def leiaInt(msg):
             print('\033[0;31mERRO: por favor, digite um número inteiro válido\033[m')
         except KeyboardInterrupt:
             print('\n\033[0;31mO user preferiu não informar os dados\033[m') 
-            return 3
+            #return 'SAIR SISTEMA'
         else: return n
 
 def menu(lista):
