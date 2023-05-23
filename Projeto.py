@@ -5,10 +5,14 @@ def cadastrar_pessoa():
     nome = input("Nome: ")
     idade = input("Idade: ")
     email = input("E-mail: ")
+    telefone = input("Telefone: ")
+    endereco = input("Endereço: ")
     pessoa = {
         "Nome": nome,
         "Idade": idade,
-        "Email": email
+        "Email": email,
+        "Telefone": telefone,
+        "Endereço": endereco
     }
     cadastros.append(pessoa)
     print("Cadastro realizado com sucesso!\n")
@@ -23,8 +27,10 @@ def visualizar_cadastros():
             print(f"Nome: {pessoa['Nome']}")
             print(f"Idade: {pessoa['Idade']}")
             print(f"E-mail: {pessoa['Email']}")
+            print(f"Telefone: {pessoa['Telefone']}")
+            print(f"Endereço: {pessoa['Endereço']}")
             print()
-    
+
 def exibir_menu():
     print("==== Menu ====")
     print("1. Cadastrar pessoa")
@@ -35,7 +41,7 @@ exibir_menu()
 
 while True:
     opcao = input("Digite o número da opção desejada: ")
-    
+
     if opcao == "1":
         cadastrar_pessoa()
     elif opcao == "2":
@@ -45,5 +51,5 @@ while True:
         break
     else:
         print("Opção inválida. Por favor, tente novamente.\n")
-    
+
     exibir_menu()
