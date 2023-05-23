@@ -1,0 +1,19 @@
+def avaliar_servico(atendimento, qualidade, prazo):
+
+    nota_media = (atendimento + qualidade + prazo) / 3
+    
+    if nota_media >= 8:
+        return "Ótimo serviço! Estamos muito satisfeitos com o atendimento, qualidade e cumprimento do prazo."
+    elif nota_media >= 6:
+        return "Bom serviço, porém há espaço para melhorias em alguns aspectos."
+    elif nota_media >= 4:
+        return "Serviço mediano. Algumas melhorias são necessárias"
+    else:
+        return "Serviço insatisfatório. Precisamos urgentemente melhorar o atendimento, qualidade e cumprimento de prazos."
+
+atendimento = float(input("Informe a nota de atendimento (0 a 10): "))
+qualidade = float(input("Informe a nota de qualidade (0 a 10): "))
+prazo = float(input("Informe a nota de cumprimento de prazo (0 a 10): "))
+
+avaliacao = avaliar_servico(atendimento, qualidade, prazo);
+print(avaliacao)
