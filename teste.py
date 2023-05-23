@@ -21,3 +21,6 @@ while True:
         cabeçalho('SISTEMA ENCERRADO')
         break
     else: cabeçalho(f'{opcao} é uma opção inválida.\nInforme a opção desejada corretamente')
+
+
+#teste
