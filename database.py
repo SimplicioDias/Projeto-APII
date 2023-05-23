@@ -21,6 +21,5 @@ def entradaDeDados():
     prof = input('Profissão: ')         
     cursor.execute("INSERT INTO users VALUES ('"+nome+"',"+str(idade)+",'"+email+"',"+str(numero)+",'"+senha+"','"+cidade+"',"+str(cpf)+",'"+prof+"')")      
     connection.commit()
-
-
+    
 
