@@ -1,9 +1,9 @@
-def linha(tam=42):
+def linha(tam=50):
     return '-' * tam
 
 def cabeçalho(txt):
     print(linha())
-    print(txt.center(42))
+    print(txt.center(50))
     print(linha())
 
 def leiaInt(msg):
@@ -16,13 +16,3 @@ def leiaInt(msg):
             print('\n\033[0;31mO user preferiu não informar os dados\033[m') 
             #return 'SAIR SISTEMA'
         else: return n
-
-def menu(lista):
-    cabeçalho('MENU PRINCIPAL')
-    
-    for pos, item in enumerate (lista):
-        print(f'\033[33m{pos+1}\033[33m - \033[34m{item}\033[m')
-        
-    print(linha())
-    opc = leiaInt('\033[32mSua Opção: \033[m')
-    return opc

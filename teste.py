@@ -11,18 +11,14 @@ while True:
         cadastrar()
         quest = int(input('1 - Entrar\n2 - Sair\n'))
         if quest == 1:
-            print('entrarSistema()')
+            entrarSistema()
         else: 
             cabeçalho('SISTEMA ENCERRADO')
             break
     elif opcao == 2:
-        print('entrarSistema()')
+        entrarSistema()
+             
     elif opcao == 3:
         cabeçalho('SISTEMA ENCERRADO')
         break
     else: cabeçalho(f'{opcao} é uma opção inválida.\nInforme a opção desejada corretamente')
-
-
-#teste
-
-#teste1
