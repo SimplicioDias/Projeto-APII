@@ -125,3 +125,5 @@ def buscarUser():
             cabeçalho(f'\033[0;31m{opcao} é uma opção inválida.\nInforme a opção desejada corretamente\033[m')
     connection.close()
             
+
+

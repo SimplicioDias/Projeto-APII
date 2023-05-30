@@ -23,4 +23,3 @@ def entrarSistema():
         elif opcao == 4:
             break
         else: cabeçalho(f'\033[0;31m{opcao} é uma opção inválida.\nInforme a opção desejada corretamente\033[m')
-

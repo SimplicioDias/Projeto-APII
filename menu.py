@@ -8,5 +8,3 @@ def menu(lista):
     print(interface.linha())
     entrada = interface.leiaInt('\033[32mSua Opção: \033[m')
     return entrada
-
-
