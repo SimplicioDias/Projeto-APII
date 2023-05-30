@@ -7,21 +7,19 @@ from menu import *
 
 def cadastrar():
     database.entradaDeDados()
-    cabeçalho('Cadastrado com Sucesso!')
+    cabeçalho('\033[32mCadastrado com Sucesso!\033[m')
     
 
 def entrarSistema():
     while True:
-        cabeçalho('<NOME PROJ>')
-        opcao = menu(['Buscar', 'Atualizar cadastro', 'Apagar cadastro','Voltar'])
+        cabeçalho('Outsourcing Contractors'.upper())
+        opcao = menu(['Buscar', 'Atualizar cadastro', 'Apagar meu cadastro','Voltar'])
         if opcao == 1:
-                print('menuBusca()')
+                database.buscarUser()
         elif opcao == 2:
             database.atualizaCadastro()
         elif opcao == 3:
             database.apagaCadastro()
         elif opcao == 4:
             break
-        else: cabeçalho(f'{opcao} é uma opção inválida.\nInforme a opção desejada corretamente')
-            
-
+        else: cabeçalho(f'\033[0;31m{opcao} é uma opção inválida.\nInforme a opção desejada corretamente\033[m')

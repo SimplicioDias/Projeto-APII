@@ -4,82 +4,126 @@ from interface import *
 from menu import *
 
 
-connection = sqlite3.connect('BancoDeDados.db')
-cursor = connection.cursor()
-
 def createTable():
+    connection = sqlite3.connect('BancoDeDados.db')
+    cursor = connection.cursor()
     cursor.execute('CREATE TABLE IF NOT EXISTS cadastro (NOME text, IDADE integer, EMAIL text, NUMERO integer, SENHA text, CIDADE text, CPF integer, TRABALHO text )')
 
-
 def entradaDeDados():
-    nome = input('Nome: ')
-    idade = datetime.datetime.now().year - leiaInt('Ano de nascimento: ')
-    email = input('Email: ')
-    numero = leiaInt('Número [Somente números]: ')
-    senha = input('Senha: ')
-    cidade = input('Cidade:')
-    cpf = leiaInt('CPF [Somente números]')
-    prof = input('trabalho: ')         
+    connection = sqlite3.connect('BancoDeDados.db')
+    cursor = connection.cursor()
+    nome = input('\033[33mNome:\033[m')
+    idade = datetime.datetime.now().year-leiaInt('\033[33mAno de nascimento:\033[m')
+    email = input('\033[33mEmail:\033[m')
+    numero = leiaInt('\033[33mNúmero < Somente números >\033[m: ')
+    senha = input('\033[33mSenha:\033[m')
+    cidade = input('\033[33mCidade:\033[m')
+    cpf = leiaInt('\033[33mCPF < Somente números >\033[m: ')
+    prof = input('\033[33mtrabalho:\033[m')         
     cursor.execute("INSERT INTO users VALUES ('"+nome+"',"+str(idade)+",'"+email+"',"+str(numero)+",'"+senha+"','"+cidade+"',"+str(cpf)+",'"+prof+"')")      
     connection.commit()
     connection.close()
-# Dento do Sistema
+
+
+
 
 def atualizaCadastro():
+    connection = sqlite3.connect('BancoDeDados.db')
+    cursor = connection.cursor()
     while True:
         cabeçalho('Opções de atualização')
         att = menu(['Email','Número','Senha','Cidade','Trabalho', 'Sair'])
         if att == 1:
-            quest = input('Novo Email: ')
-            cpf = leiaInt('CPF p/ confirmarção:')
+            quest = input('\033[33mNovo Email:\033[m ')
+            cpf = leiaInt('\033[33mCPF p/ confirmarção:\033[m ')
             cursor.execute("UPDATE users SET email='"+quest+"'WHERE cpf="+str(cpf)+"")
             connection.commit()  
-            connection.close()
-            print(f'Atualizado. NOW:{quest}')
+            cabeçalho(f'\033[32mAtualizado\033[m')
         elif att == 2:
-            quest = leiaInt('Novo Número: ')
-            cpf = leiaInt('CPF p/ confirmarção:')
+            quest = leiaInt('\033[33mNovo Número:\033[m ')
+            cpf = leiaInt('\033[33mCPF p/ confirmarção:\033[m ')
             cursor.execute("UPDATE users SET numero='"+str(quest)+"'WHERE cpf="+str(cpf)+"")
-            connection.commit() 
-            connection.close()  
-            print(f'Atualizado. NOW:{quest}')
+            connection.commit()   
+            cabeçalho(f'\033[32mAtualizado\033[m')
         elif att == 3:
-            quest = input('Nova Senha: ')
-            cpf = leiaInt('CPF p/ confirmarção:')
+            quest = input('\033[33mNova Senha:\033[m ')
+            cpf = leiaInt('\033[33mCPF p/ confirmarção:\033[m')
             cursor.execute("UPDATE users SET senha='"+quest+"'WHERE cpf="+str(cpf)+"")
             connection.commit()
-            connection.close()
-            print(f'Atualizado. NOW:{quest}')
+            cabeçalho(f'\033[32mAtualizado\033[m')
         elif att == 4:
-            quest = input('Nova Cidade: ')
-            cpf = leiaInt('CPF p/ confirmarção:')
+            quest = input('\033[33mova Cidade:\033[m ')
+            cpf = leiaInt('\033[33mCPF p/ confirmarção:\033[m')
             cursor.execute("UPDATE users SET cidade='"+quest+"'WHERE cpf="+str(cpf)+"")
             connection.commit()
-            connection.close()
-            print(f'Atualizado. NOW:{quest}')
+            cabeçalho(f'\033[32mAtualizado.\033[m')
         elif att == 5:
-            quest = input('Novo Trabalho: ')
-            cpf = leiaInt('CPF p/ confirmarção:')
+            quest = input('\033[33mNovo Trabalho:\033[m ')
+            cpf = leiaInt('\033[33mCPF p/ confirmarção:\033[m')
             cursor.execute("UPDATE users SET profissão='"+quest+"'WHERE cpf="+str(cpf)+"")
             connection.commit()
-            connection.close()
-            print(f'Atualizado. NOW:{quest}')
+            cabeçalho(f'\033[32mAtualizado\033[m')
         elif att == 6:
-            cabeçalho('Atualização Finalizada')
-            connection.close()
+            cabeçalho('\033[32mAtualização Finalizada\033[m')
             break
-        else: cabeçalho(f'{att} é uma opção inválida.\nInforme a opção desejada corretamente')
+        else: 
+            cabeçalho(f'{att} é uma opção inválida.\nInforme a opção desejada corretamente')
+    connection.close()
 
 def apagaCadastro():
+    connection = sqlite3.connect('BancoDeDados.db')
+    cursor = connection.cursor()
     cabeçalho('APAGANDO CADASTRO')
-    cpf = leiaInt('CPF p/ confirmarção [Irá deletar o Usuário]: ')
+    cpf = leiaInt('\033[33mCPF p/ confirmarção [Irá deletar o Usuário]:\033[m ')
     cursor.execute("DELETE FROM users WHERE cpf ="+str(cpf)+"")
-    connection.commit()
+    opc = input('\033[33mTem certerza que quer continuar [S/N]?\033[m ').upper().strip()
+    if opc == 'S':
+        connection.commit()
+        cabeçalho(f'Usuário de CPF: \033[32m{cpf}\033[m teve os dados apagado')
+    else:
+        cabeçalho('\033[32mUsuário mantido\033[m')
     connection.close()
-    cabeçalho(f'Usuário de CPF: {cpf} teve os dados apagado')
 
-
-def buscar():
-    cabeçalho('ÁREA DE BUSACA')
+def buscarUser():
+    connection = sqlite3.connect('BancoDeDados.db')
+    cursor = connection.cursor()
+    while True:
+        cabeçalho('ÁREA DE BUSCA')
+        opcao = menu(['Buscar por nome', 'Buscar por email', 
+                      'Buscar por numero', 'Buscar por cidade', 
+                      'Buscar por profissão', 'Voltar'])
+        if opcao == 1:
+            sql = 'SELECT * FROM users WHERE nome = ?'
+            busca = input('\033[33mInoforme o nome que deseja buscar:\033[m')
+            for linha in cursor.execute(sql, (busca,)):
+                cabeçalho(f'Nome: {linha[0]}\nIdade: {linha[1]} anos\nEmail: {linha[2]}\nnúmero: {linha[3]}\nCidade: {linha[5]}')
+        elif opcao == 2:
+            sql = 'SELECT * FROM users WHERE email = ?'
+            busca = input('\033[33mInoforme o email de quem deseja buscar:\033[m')
+            for linha in cursor.execute(sql, (busca,)):
+                cabeçalho(f'Nome: {linha[0]}\nIdade: {linha[1]} anos\nEmail: {linha[2]}\nnúmero: {linha[3]}\nCidade: {linha[5]}')
+        elif opcao == 3:
+            sql = 'SELECT * FROM users WHERE numero = ?'
+            busca = leiaInt('\033[33mInoforme o Número de quem deseja buscar:\033[m')
+            for linha in cursor.execute(sql, (busca,)):
+                cabeçalho(f'Nome: {linha[0]}\nIdade: {linha[1]} anos\nEmail: {linha[2]}\nnúmero: {linha[3]}\nCidade: {linha[5]}')
+        elif opcao == 4:
+            sql = 'SELECT * FROM users WHERE cidade = ?'
+            busca = input('\033[33mInoforme a cidade que deseja buscar:\033[m')
+            for linha in cursor.execute(sql, (busca,)):
+                cabeçalho(f'Nome: {linha[0]}\nIdade: {linha[1]} anos\nEmail: {linha[2]}\nnúmero: {linha[3]}\nCidade: {linha[5]}')
+                
+        elif opcao == 5:
+            sql = 'SELECT * FROM users WHERE profissão = ?'
+            busca = input('\033[33mInoforme a profissão que deseja buscar:\033[m')
+            for linha in cursor.execute(sql, (busca,)):
+                cabeçalho(f'Nome: {linha[0]}\n{linha[1]} anos\nEmail: {linha[2]}\nnúmero: {linha[3]}\nCidade: {linha[5]}')
+        elif opcao == 6:
+            cabeçalho('\033[32mBUSCA FINALIZADA\033[m')
+            break
+        else:
+            cabeçalho(f'\033[0;31m{opcao} é uma opção inválida.\nInforme a opção desejada corretamente\033[m')
+    connection.close()
+            
 
 

@@ -6,10 +6,11 @@ from database import *
 #createTable()
 
 while True:
-    opcao = menuInicial(['Cadastrar', 'Entrar', 'Encerrar'])
+    cabeçalho('BEM VINDO')
+    opcao = menu(['Cadastrar', 'Entrar', 'Encerrar'])
     if opcao == 1:
         cadastrar()
-        quest = int(input('1 - Entrar\n2 - Sair\n'))
+        quest = int(input('\033[33m1 -\033[m \033[34mEntrar\033[m\n\033[33m2 -\033[m \033[34m6\033[m\n'))
         if quest == 1:
             entrarSistema()
         else: 
@@ -21,4 +22,5 @@ while True:
     elif opcao == 3:
         cabeçalho('SISTEMA ENCERRADO')
         break
-    else: cabeçalho(f'{opcao} é uma opção inválida.\nInforme a opção desejada corretamente')
+    else: cabeçalho(f'''\033[0;31m{opcao} é uma opção inválida.
+                    \nInforme a opção desejada corretamente\033[m''')

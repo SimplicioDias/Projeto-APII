@@ -1,3 +1,5 @@
+
+
 def linha(tam=50):
     return '-' * tam
 
