@@ -10,5 +10,3 @@ def menu(lista):
     return entrada
 
 
-
-#concluido

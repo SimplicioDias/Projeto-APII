@@ -26,6 +26,3 @@ while True:
                     \nInforme a opção desejada corretamente\033[m''')
 
 
-
-
-#concluido
