@@ -16,17 +16,13 @@ while True:
                 entrarSistema()
             elif quest == 2:
                 break
-                
-                break
             else: cabeçalho(f'\033[0;31m{quest} é uma opção inválida.\nInforme a opção desejada corretamente\033[m')
     elif opcao == 2:
         entrarSistema()
-             
+        cabeçalho('SISTEMA ENCERRADO')
+        break
     elif opcao == 3:
         cabeçalho('SISTEMA ENCERRADO')
         break
     else: cabeçalho(f'\033[0;31m{opcao} é uma opção inválida.\nInforme a opção desejada corretamente\033[m')
     
-
-
-
