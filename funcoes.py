@@ -6,11 +6,16 @@ from menu import *
 
 
 def cadastrar():
+    """Método que chama a função 'EntradaDeDados()' e mostra a finalização do cadastro
+    """
     database.entradaDeDados()
     cabeçalho('\033[32mCadastrado com Sucesso!\033[m')
     
 
 def entrarSistema():
+    """Entra no sistema
+    Método que usa as funções 'menu()', 'buscarUser()', 'atualizaCadastro()' e 'apagaCadastro()' para dar funcionalidade ao sistema
+    """
     while True:
         cabeçalho('Outsourcing Contractors'.upper())
         opcao = menu(['Buscar', 'Atualizar cadastro', 'Apagar meu cadastro','Voltar'])
