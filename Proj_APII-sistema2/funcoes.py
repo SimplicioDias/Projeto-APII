@@ -33,7 +33,6 @@ def leiaInt(msg):
         else: return n       
 
 
-
 def singUp():
     button = menu(['Cadastrar como cliente', 'Cadastrar como Profissional'])
     dados = {}
@@ -61,11 +60,25 @@ def singUp():
         dados.clear()
 
 
-""" lista1 = [{'nome': 'Ana', 'idade': 29, 'cidade': 'JUA', 'email': 'ana@ana.com', 'senha': 'ana31'}, 
-          {'nome': 'Natan', 'idade': 20, 'cidade': 'Crato', 'email': 'natan@natan.com', 'senha': 'natan20'}]
+"""
+
+l1 = [
+{'nome': 'Ana', 'idade': 29, 'cidade': 'Juazeiro', 'email': 'ana1@ana.com', 'senha': 'ana28'}, {'nome': 'Natan', 'idade': 20, 'cidade': 'Crato', 'email': 'natan@natan.com', 'senha': 'natan20'}, 
+{'nome': 'Simplício', 'idade': 20, 'cidade': 'Caririaçu', 'email': 'simp@simp.com', 'senha': 'simp19'},
+{}
+
+]
 
 
-lsita2 = [{'nome': 'Ana', 'idade': 29, 'cidade': 'Crato', 'número': 88987546780, 'email': 'ana@ana.com', 'senha': 'ana29', 'profissão': 'faxineira', 'descrição': 'Sou faxineira a 7 anos. Faço faxina completa, atualmente autônoma morando no Crato', 'preço': 'R$ 30,00 por dia + taxa de viagem'}, 
-          {'nome': 'José', 'idade': 38, 'cidade': 'Jauzeiro', 'número': 88975674530, 'email': 'jose@j.com', 'senha': 'jose85', 'profissão': 'Pedreiro', 'descrição': 'Sou pedreiro a 10 anos, especializado em construção de casas, atualmente residindo em Juazeiro, também trabalho faço empeleitamento', 'preço': 'R$ 90,00 diária, + taxa de transporte + ajudantes | támbem é possível empeleitamento negocioável com o cliente'}] 
- """
+l2 = [
+{'nome': 'Ana', 'idade': 29, 'cidade': 'Juazeiro', 'número': 88987546780, 'email': 'ana@ana.com', 'senha': 'ana29', 'profissão': 'Faxineira', 'descrição': 'Sou faxineira a 7 anos. Faço faxina completa, atualmente autônoma morando no Crato', 'preço': 'R$ 25,00 por dia + taxa de viagem (negociável)'},
+{'nome': 'José', 'idade': 38, 'cidade': 'Jauzeiro', 'número': 88975674530, 'email': 'jose@j.com', 'senha': 'jose85', 'profissão': 'Pedreiro', 'descrição': 'Sou pedreiro a 10 anos, especializado em construção de casas, atualmente residindo em Juazeiro, também trabalho faço empeleitamento', 'preço': 'R$ 90,00 diária, + taxa de transporte + ajudantes | támbem é possível empeleitamento negocioável com o cliente'}, 
+{'nome': 'Lara', 'idade': 22, 'cidade': 'Juazeiro', 'número': 88975678670, 'email': 'lara@l.com', 'senha': 'lara22', 'profissão': 'Advogada', 'descrição': 'Sou recem formada em Direito, por enquanto estou tentando seguir solo no ramo na advocacia, sou muito dedicada aos estudos. Não pesem que só por ser recem formada me falta experiência, sou muito boa no que faço !', 'preço': 'depende do caso. consigo negociar com o cliente'}, 
+{'nome': 'Maria', 'idade': 33, 'cidade': 'Crato', 'número': 88923456670, 'email': 'maria@m.com', 'senha': 'maria90', 'profissão': 'Faxineira', 'descrição': 'Trabalho com faxina a 10 anos, já fui empregada mas hoje estou sem emprego. Faço todo tipo de faxina domiciliar, maior atuação na cidade do Crato.', 'preço': 'R$ 27,00 acrésimo de transporte e taxa de produtos (se os produtos forem meus)'},
+{}
+
+]
+
+
+"""
 
