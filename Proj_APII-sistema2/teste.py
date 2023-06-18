@@ -14,7 +14,7 @@ while True:
         
         if lc:
             while True: # SISTEMA VISÃO CLIENTE
-                cabeçalho('Outsourcing Contractors'.upper())
+                cabeçalho('Click Service'.upper())
                 opcao = menu(['Buscar por Profissionais', 'Atualizar cadastro', 'Ver meus contratos','Voltar para o Inicio'])
                 
                 if opcao == 1: #Faz pesquisa de profissionais
