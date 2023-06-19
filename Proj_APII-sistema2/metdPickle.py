@@ -30,14 +30,14 @@ def atualizarDados(nomeArq, chave, newDado): #Atualiza dados do arquivo pelo pic
     #Passado como parâmetro o nome do arquivo, uma 'chave' que representa o valor de um elemento de um dicinário 
     # e um 'newDado' que substiuirá esse valor da chave
     try:
-        arquivo = open(nomeArq, 'rb')
-        listaDados = pickle.load(arquivo)
+            arquivo = open(nomeArq, 'rb')
+            listaDados = pickle.load(arquivo)
         
     except:
-        print("Arquivo não encontrado e/ou erro na estrura.")
-        return
+            print("Arquivo não encontrado e/ou erro na estrura.")
+            return
     
-    if nomeArq == 'profissionais.dat':
+    if nomeArq == 'profissionais.dat':       
         for dado in listaDados:
             if dado['email'] == chave:
                 dado.update(newDado)
@@ -70,8 +70,8 @@ def atualizarDados(nomeArq, chave, newDado): #Atualiza dados do arquivo pelo pic
             else:
                 print("Dados incorretos")
                 return
-            
-    if nomeArq == 'clientes.dat':
+                     
+    if nomeArq == 'clientes.dat':      
         for dado in listaDados:
             if dado['email'] == chave:
                 dado.update(newDado)
@@ -89,19 +89,16 @@ def atualizarDados(nomeArq, chave, newDado): #Atualiza dados do arquivo pelo pic
                 print("Dados incorretos")
                 return
             
-    else:
-        print('O nome do Arquivo não é válido')
-        return
-    
     try:
-        arquivo = open(nomeArq, 'wb')
-        pickle.dump(listaDados, arquivo)
-        print("Dados atualizados com sucesso!")
-        arquivo.close()
-        
+            arquivo = open(nomeArq, 'wb')
+            pickle.dump(listaDados, arquivo)
+            print("Dados atualizados com sucesso!")
+            arquivo.close()
+            
     except IOError:
-        print("Ocorreu um erro ao atualizar os dados no arquivo.")
-        return
+            print("Ocorreu um erro ao atualizar os dados no arquivo.")
+            return
+
 
 
 def adicionarDados(nomeArq, novoDado):  #Adiciona dados no arquivo pelo pickle
@@ -127,7 +124,18 @@ def adicionarDados(nomeArq, novoDado):  #Adiciona dados no arquivo pelo pickle
         print("Ocorreu um erro ao adicionar os dados ao arquivo.")
         return
 
+def quest(msg): #Facilita uma reposta em T ou F
+    #retorna True se a resposta for sim[S] e False se a resposta for não[N]
+    while True:
+        r = input(msg).strip().upper()
+        if r == 'S':
+            return True
+        elif r == 'N':
+            return False
+        else:
+            print('Inválido, informe somente sim ou não. [S/N]\n')
 
+       
 def login(nomeArq, email, senha):   #Tipo de login que valida um usuário usando pickle
     #Recebe como parâmetro o nomo do arquivo, email e senha de um cadastro
     #Retorna 'True' se encontrar os dados ou 'False' se não encontrar os dados no arquivo
@@ -164,8 +172,8 @@ def removerCadastro(nomeArq, email, senha): #Remove dados do arquivo usando pick
             break
         
     if indice is not None:
-        r = input('Tem certeza que deseja apagar seu cadastro? [S/N] ').strip().upper()
-        if r == 'S':
+        r = quest('Tem certeza que deseja apagar seu cadastro? [S/N]')
+        if r:
             dados.pop(indice)
             try:     
                 arquivo = open(nomeArq, 'wb')
@@ -175,19 +183,31 @@ def removerCadastro(nomeArq, email, senha): #Remove dados do arquivo usando pick
             except:
                 print("\033[31mOcorreu um erro ao remover o cadastro.\033[m")     
                     
-        elif r == 'N':
-            print('\033[31mCadastro não removido\033[m')
-        
         else:
-            print("\033[31mOcorreu um erro ao tentar remover [ERRO: Sua resposta não é válida]\033[m")
+            print('\033[31mCadastro não removido\033[m')
+
 
     else:
         print("Email ou senha incorretos.")
 
 
 
+
+
 #adicionarDados('clientes.dat', {'nome': 'Natan', 'idade': 20, 'cidade': 'Crato', 'email': 'natan@natan.com', 'senha': 'natan20'})
-#print(carregaDados('clientes.dat'))
 
 #adicionarDados('profissionais.dat', {'nome': 'José', 'idade': 38, 'cidade': 'Jauzeiro', 'número': 88975674530, 'email': 'jose@j.com', 'senha': 'jose85', 'profissão': 'Pedreiro', 'descrição': 'Sou pedreiro a 10 anos, especializado em construção de casas, atualmente residindo em Juazeiro, também trabalho faço empeleitamento', 'preço': 'R$ 90,00 diária, + taxa de transporte + ajudantes | támbem é possível empeleitamento negocioável com o cliente'})
-#print(carregaDados('profissionais.dat'))
+
+
+
+
+
+
+'''x = carregaDados('profissionais.dat')
+y = carregaDados('clientes.dat')
+print()
+for pos, e in enumerate(y):
+    print(e)
+    pos+= 1
+    print()
+print(f'total de cadastros: {pos}')'''
